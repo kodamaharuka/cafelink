@@ -1,14 +1,43 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+# Cafelink
 
+## サイト概要
 
-Hi there! Welcome to AWS Cloud9!
+カフェの投稿サイト。いいね機能やコメント機能あり。ジャンル分けし、シーンや目的ごとにカフェ検索をすることが可能。
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
+### サイトテーマ
 
-Happy coding!
+カフェに特化した投稿サイト。記録用にも検索用にも使える。
+
+### テーマを選んだ理由
+
+カフェ巡りが好きだったので、カフェ巡りに活かすことができる機能が実装されたサイトを作りたいと思ったから。
+
+### ターゲットユーザ
+
+カフェの記録・投稿をしたい人。カフェを探したい人。
+
+### 主な利用シーン
+
+カフェの記録・投稿
+カフェ検索
+
+## 設計書
+
+ワークフレーム.png
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1VYhRDJgy7Ogfc0fTHhKn9CPkpGFK-pkkeLPpDObEEm8/edit#gid=0
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+
+- https://icon-rainbow.com/?s=cafe
+- https://pixabay.com/
