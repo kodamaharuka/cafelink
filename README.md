@@ -23,7 +23,7 @@
 
 ## 設計書
 
-ワークフレーム.png
+ワークフレーム.png![image](https://user-images.githubusercontent.com/78310401/116812257-d4431480-ab88-11eb-8750-5d0db8e69ba5.png)
 
 ## チャレンジ要素一覧
 
