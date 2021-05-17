@@ -1,2 +1,34 @@
 <h1>Genres#edit</h1>
 <p>Find me in app/views/genres/edit.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10">
+      <h4 class="text-center">ジャンル編集</h4>
+      <div style="font-size: 20px;">
+        <%= render "layouts/error_messages", model: @genre %>
+      </div>
+
+      <!--編集フォーム-->
+      <%= form_with model: @genre, url: admin_genre_path(@genre.id), local: true do |f| %>
+        <table class="table">
+          <tr class="genre-table-box">
+            <th><%= f.label "ジャンル名" %></th>
+            <td><%= f.text_field :name, class: "form-control", :size => "70x2" %></td>
+          </tr>
+        </table>
+        <div class="text-center">
+          <%= f.submit "更新する", class: "btn btn-outline-secondary btn-lg" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 text-center">
+      <%= link_to admin_genres_path do %>
+        <p class="genre-path">ジャンル登録  /  一覧</p>
+      <% end %>
+    </div>
+  </div>
+</div>

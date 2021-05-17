@@ -1,0 +1,2 @@
+$("#comments_<%= @post.id %>").html("<%= j (render 'public/comments/comment', post: @post, comment: @comment) %>");
+$("text_area").val("");

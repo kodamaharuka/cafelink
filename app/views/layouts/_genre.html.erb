@@ -1,0 +1,13 @@
+<div class="genre-area container">
+  <div class="row m-0">
+    <div class="genre-box col-lg-12 m-3">
+      <% genres.each do |genre| %>
+        <%= link_to search_posts_path(id: genre.id) do %>
+          <div class="genre-name card">
+            <div class="genre-text"><%= genre.name %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

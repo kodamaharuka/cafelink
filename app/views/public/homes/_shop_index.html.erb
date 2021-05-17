@@ -1,0 +1,9 @@
+<div class="shop-index">
+  <% shops.each do |shop| %>
+    <div>
+      <%= link_to shop_path(shop) do %>
+          <div><%= image_tag shop.image_url, :size => "145x200" %></div>
+          <p><%= shop.title %></p>
+      <% end %>
+     </div>
+ </div>

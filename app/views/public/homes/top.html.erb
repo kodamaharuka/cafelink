@@ -1,0 +1,46 @@
+<h1>Cafelink トップページ</h1>
+<p>Find me in app/views/homes/top.html.erb</p>
+
+
+<div class="main-visual container-fluid">
+  <p class="back-img">
+    <h4>カフェ好きのためのアプリ</h4>
+    <p>
+      <p><%= image_tag 'cafe.jpg', :size => "200x200" %></p>
+      <h4>cafelink</h4>
+
+    </p>
+  </p>
+</div>
+
+<div class="container" data-turbolinks="false">
+  <div class="review-slider-title">
+    <h3  class="">みんなの投稿</h3>
+  </div>
+  <div class="row m-4">
+    <div class="review-slider-box col-lg-12">
+        <div class="review-slider">
+          <%= render 'public/homes/slider', revdom: @revdom, post: @post %>
+        </div>
+    </div>
+    <div class="comic-slider-box col-lg-12">
+      <h3 class="comic-slider-title">おすすめ! カフェ</h3>
+
+        <div class="comic-slider">
+          <%= render 'public/homes/slider', random: @random %>
+        </div>
+
+    </div>
+    <div class="col-lg-12">
+      <div class="top-post-link">
+        <%#= link_to post_path do %>
+          <p class="top-post-path">投稿一覧へ</p>
+        <%# end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="genre-list">
+  <%= render 'layouts/genre', genres: @genres %>
+</div>
