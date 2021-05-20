@@ -4,16 +4,17 @@ class Public::PostsController < ApplicationController
   def new
     @genres = Genre.all
     @post = Post.new
-    @shop = Shop.find_by(isbn: params[:shop_id])
+    #@shop = Shop.find_by(isbn: params[:shop_id])
   end
 
   def create
-    @poat = Post.new(post_params)
+    @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to shop_path(@post.shop.isbn), notice: 'レビューを追加しました'
+      redirect_to posts_path, notice: "つぶやきを投稿しました"
+      #redirect_to user_path(current_user), notice: "つぶやきを投稿しました"
     else
-      @shop = Shop.find_by(isbn: params[:shop_id])
+      flash.now[:alert] = "つぶやき投稿失敗しました"
       render :new
     end
   end
@@ -51,18 +52,17 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    @genres = Genre.all
     @post = Post.find(params[:id])
-    @post = Post.find_by(isbn: params[:post_id])
+    @post.user_id = current_user.id
     @post.destroy
-    redirect_to post_path(@post.isbn), notice: 'レビューを削除しました'
+    redirect_to user_path(current_user)
   end
 
   # 投稿データのストロングパラメータ
   private
 
   def post_params
-    params.require(:post).permit(:cafe_name, :image_id, :introduction)
+    params.require(:post).permit(:cafe_name, :image, :introduction)
   end
 
   def ensure_correct_user

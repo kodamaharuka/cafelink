@@ -45,6 +45,7 @@ devise_for :admins, controllers: {
     get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'user_unsubscribe'
     patch 'users/:id/withdraw' => 'users#withdraw', as: 'user_withdraw'
     get 'search' => 'users#search', as: 'user_search'
+    #post 'users/:id' => 'posts#index' #, as: 'post_index'
     
     # フォロー機能
     resources :relationships, only: %i[create destroy]
@@ -52,9 +53,10 @@ devise_for :admins, controllers: {
     get 'relationships/followers' => 'relationships#followers', as: 'followers'
     
     # 投稿機能
-    resources :posts, only: [:show, :edit, :new, :create, :update, :destroy] do
+    resources :posts, only: [:show, :edit, :new, :create, :update, :destroy, :index] do
       member do
-        get :index
+        #get :index
+        #get '/users/:id' => ''
       end
       
       resources :comments, only: %i[create destroy]

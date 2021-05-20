@@ -32,6 +32,14 @@
         <div class="mypage-link">
           <%= link_to "パスワードを変更する", edit_user_registration_path %>
         </div>
+        <!--<div class="new-post-link">-->
+          <%#= link_to "投稿する", new_post_path %>
+          <%#= render partial: 'public/posts/new', locals: { posts: @post} %>
+          <%#= render partial: 'public/posts/new', locals: { posts: @posts} %>
+        <!--</div>-->
+        <%= link_to new_post_path do %>
+          <i class="fas fa-comment"><span class="icon-text">投稿する</span></i>
+      　<% end %>
       <% end %>
     </div>
   </div>
