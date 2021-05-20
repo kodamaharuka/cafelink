@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   
   # フォロー機能
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
-
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  has_many :followings, through: :relationships, source: :followed
+  
   def follow(other_user)
     relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end

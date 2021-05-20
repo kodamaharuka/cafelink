@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   
-devise_for :admins
-  namespace :admin do
-    resources :shops,only: [:index, :edit, :create, :destroy, :update]
-  	resources :genres,only:  [:top, :index, :show, :new, :edit, :create, :destroy, :update]
-  	get 'top'=>'products#top'
-  end
-
+devise_for :admins, controllers: {
+    sessions: 'devise/admins/sessions',
+    passwords: 'devise/admins/passwords',
+    registrations: 'devise/admins/registrations'
+  }
+  
   devise_for :users,:controllers => {
       :sessions => "devise/users/sessions",
       :registrations => "devise/users/registrations",
@@ -49,25 +48,22 @@ devise_for :admins
     
     # フォロー機能
     resources :relationships, only: %i[create destroy]
-    get 'relationships/follows' => 'relationships#follow', as: 'relationships_follows'
-    get 'relationships/followers' => 'relationships#follower', as: 'relationships_followers'
+    get 'relationships/followings' => 'relationships#followings', as: 'followings'
+    get 'relationships/followers' => 'relationships#followers', as: 'followers'
     
+    # 投稿機能
+    resources :posts, only: [:show, :edit, :new, :create, :update, :destroy] do
+      member do
+        get :index
+      end
+      
+      resources :comments, only: %i[create destroy]
+      resource :likes, only: %i[create destroy]
+    end
     
     # カテゴリー検索
     get 'genre/search' => 'homes#search', as: 'search_shops'
     get 'shops/' => 'shops#show', as: 'shop'
-    resources :ahops, only: [:index] do
-      # レビュー機能
-      resources :reviews do
-        resources :comments, only: %i[create destroy]
-        resource :likes, only: %i[create destroy]
-      end
-      # Tag機能
-      resources :tags, only: %i[create destroy] # do
-      # get 'search', to: 'tag#search'
-      # end
-    end
-    get 'tags/:tag_name/search' => 'tags#search', as: 'tag_search'
+    
   end
 end
-

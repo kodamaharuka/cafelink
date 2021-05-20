@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Public::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def new
@@ -20,20 +20,25 @@ class PostsController < ApplicationController
 
   def index
     @genres = Genre.all
-    @posts = @shop.post
+    #@posts = @shop.post
+    @posts = Post.all.page(params[:page]).per(12).order(created_at: "DESC")
+    #@posts = @shop.posts
+  end
+  
+  def edit
+    @genres = Genre.all
+    @post = Post.find(params[:id])
   end
 
   def show
     @genres = Genre.all
     @post = Post.find(params[:id])
-    @shop = Shop.find_by(isbn: params[:shop_id])
+    #@shop = Shop.find_by(isbn: params[:shop_id])
     @comment = Comment.new
+    @user = @post.user
   end
 
-  def edit
-    @genres = Genre.all
-    @post = Post.find(params[:id])
-  end
+  
 
   def update
     @post = Post.find(params[:id])

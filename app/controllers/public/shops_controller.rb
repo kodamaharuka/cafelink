@@ -1,4 +1,4 @@
-class ShopsController < ApplicationController
+class Public::ShopsController < ApplicationController
   
   def index
     @shops = Shop.all.page(params[:page]).per(10)

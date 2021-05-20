@@ -1,7 +1,5 @@
-class UsersController < ApplicationController
+class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, except: %i[index show search]
-  before_action :forbid_test_user, only: %i[edit update unsubscribe withdraw]
 
   # def index
   #   @users = User.all
@@ -9,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    #@posts = @user.posts
   end
 
   def edit
