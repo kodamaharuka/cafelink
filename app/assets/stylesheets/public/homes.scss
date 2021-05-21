@@ -8,7 +8,7 @@
 
 .top-image1, .top-image2, .top-image3 {
   height: 550px;
-  margin: 50px 0;
+  margin: 5px 0;
   background-size: cover;
 }
 
@@ -32,18 +32,13 @@
   color: #fff;
 }
 
-.site-name-brown {
-  color: #d2b48c;
-}
-
 .concept-text {
   position: absolute;
-  padding: 30px;
-  bottom: 150px;
+  padding: 50px;
+  bottom: 100px;
   text-align: center;
-  right: 30px;
+  right: 10px;
   color: #fff;
-  font-family: "Hannari";
   background-color: rgba(115, 78, 48, 0.3);
 }
 

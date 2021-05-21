@@ -18,3 +18,21 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+/*global $*/
+$('.open').click(function(){
+    $('.modal').fadeIn();
+});
+$('.close').click(function(){
+    $('.modal').fadeOut();
+});
+
+// ハンバーガーメニュー用
+$(document).on('turbolinks:load', function() {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
+  });
+   $('#sp-menu').toggleClass;
+});
