@@ -65,4 +65,3 @@ class Admin::ShopsController < ApplicationController
     )
   end
 end
-end
