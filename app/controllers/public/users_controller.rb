@@ -1,13 +1,15 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
 
-  # def index
-  #   @users = User.all
-  # end
+  #def index
+     #@users = User.all
+     #@post = Post.new
+  #end
 
   def show
     @user = User.find(params[:id])
-    #@posts = @user.posts
+    @posts = @user.posts
+    @post = Post.new
   end
 
   def edit

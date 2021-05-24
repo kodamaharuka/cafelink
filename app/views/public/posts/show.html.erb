@@ -1,6 +1,4 @@
-<h1>Postts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-
+<h1>Posts#show</h1>
 <div class="container">
   <div class="user-box row">
     <div class="col-lg-4">
@@ -16,8 +14,8 @@
       </div>
       <!--フォロー/フォロワー一覧-->
       <div>
-        <div><%#= link_to "フォロー: #{@user.followings.count} ", relationships_follows_path(id: @user.id) %></div>
-        <div><%#= link_to "フォロワー: #{@user.followers.count} ", relationships_followers_path(id: @user.id) %></div>
+        <div><%= link_to "フォロー: #{@user.followings.count} ", followings_path(id: @user.id) %></div>
+        <div><%= link_to "フォロワー: #{@user.followers.count} ", followers_path(id: @user.id) %></div>
       </div>
     </div>
     <div class="col-lg-8">

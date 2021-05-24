@@ -24,11 +24,11 @@
           <%= link_to "#{post.user.name}", user_path(post.user), class: "user-name" %>&nbsp;
         </div>
         <!-- いいね・コメントマーク -->
-        <!--<span id="likes_btn_<%#= post.id %>">
-          <%#= render partial: 'user/post_likes/post_like', locals: {post: post} %>
-        </span>-->
+        <span id="likes_btn_<%= post.id %>">
+          <%= render partial: 'public/likes/like_btn', locals: {post: post} %>
+        </span>
         <%= link_to post_path(post) do %>
-          <i class="far fa-comment"></i>&nbsp;<%#= post.comments.count %>
+          <i class="far fa-comment"></i>&nbsp;<%= post.comments.count %>
         <% end %>
       </div>
       <div class="post-date">

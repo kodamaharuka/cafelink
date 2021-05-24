@@ -1,5 +1,4 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 <div class="container">
   <div class="user-box row">
     <div class="col-lg-4">
@@ -9,6 +8,15 @@
       <h4>
         <%= @user.name %>
       </h4>
+      <!--フォローボタン-->
+      <div >
+        <%= render 'public/relationships/follow_button', user: @user %>
+      </div>
+      <!--フォロー/フォロワー一覧-->
+      <div>
+        <div><%= link_to "フォロー: #{@user.followings.count} ", followings_path(id: @user.id) %></div>
+        <div><%= link_to "フォロワー: #{@user.followers.count} ", followers_path(id: @user.id) %></div>
+      </div>
       
   <div class="col-lg-8">
     <div class="introduction">
