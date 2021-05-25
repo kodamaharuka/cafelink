@@ -1,1 +1,1 @@
-$("#like-<%= @post.id %>").html("<%= j(render partial: 'public/likes/like_btn', locals: { post: @post }) %>");
+$("#likes_btn_<%= @post.id %>").html("<%= j(render partial: 'public/likes/like_btn', locals: { post: @post }) %>");

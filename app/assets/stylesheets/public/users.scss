@@ -272,7 +272,7 @@
 
 // モバイル版対応
 @media screen and (max-width: 600px) {
-  // members/show画面
+  // users/show画面
   .my-page {
     width: 92%;
     margin: 10px auto 10px;
@@ -348,7 +348,7 @@
     color: #de82a7;
   }
 
-  // members/edit画面
+  // users/edit画面
   .my-page-edit {
     width: 92%;
   }
@@ -362,7 +362,7 @@
     width: 92%;
   }
 
-  // members/follow_list画面
+  // users/follow_list画面
   .follow-page {
     width: 80%;
     margin: 30px auto 10px;
@@ -388,7 +388,7 @@
     color: #736d71;
   }
 
-  // members/show以外のFontAweSomeのbookmarkアイコンサイズ
+  // users/show以外のFontAweSomeのbookmarkアイコンサイズ
   .shop-bookmark > .fa-bookmark {
     font-size: 15px;
   }

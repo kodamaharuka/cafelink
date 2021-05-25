@@ -55,7 +55,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
     @post.destroy
-    redirect_to user_path(current_user)
+    redirect_to posts_path
   end
 
   # 投稿データのストロングパラメータ

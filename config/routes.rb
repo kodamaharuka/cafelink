@@ -54,14 +54,19 @@ devise_for :admins, controllers: {
     
     # 投稿機能
     resources :posts, only: [:show, :edit, :new, :create, :update, :destroy, :index] do
-      member do
+      #member do
         #get :index
         #get '/users/:id' => ''
-      end
+      #end
       
-      resources :comments, only: %i[create destroy]
-      resource :likes, only: %i[create destroy]
-    end
+      #resources :comments, only: %i[create destroy]
+    resources :comments, only: [:create, :destroy]
+
+      #resources :likes, only: %i[create destroy]
+      resource :likes, only: [:create, :destroy]
+      end
+    
+  
     
     # カテゴリー検索
     get 'genre/search' => 'homes#search', as: 'search_shops'

@@ -1,58 +1,58 @@
 <h3 class="page-heading">Post Comment</h3>
-  <div class="show-tweet-content">
-    <div class="show-tweet-box">
-      <%= attachment_image_tag @post, :image, class: "show-tweet-image" %>
+  <div class="show-post-content">
+    <div class="show-post-box">
+      <%= attachment_image_tag @post, :image, class: "show-post-image" %>
       <!-- つぶやきの内容部分 -->
-      <div class="show-tweet">
-        <%= attachment_image_tag @post.user, :profile_image, fallback: "no_image.jpg", class: "tweet-profile-image" %>
+      <div class="show-post">
+        <%= attachment_image_tag @post.user, :profile_image, fallback: "no_image.jpg", class: "post-profile-image" %>
         <%= @post.user.name %>
         <% if @post.user == current_user %>
-          <%= link_to "削除", tweet_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "tweet-destroy-btn" %>&nbsp;
+          <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "post-destroy-btn" %>&nbsp;
         <% end %>
         <!-- いいね・コメントマーク -->
         <span id="likes_btn_<%= @post.id %>">
-        <%= render partial: 'public/tweets', locals: {post: @post} %>
+        <%= render partial: 'public/posts', locals: {post: @post} %>
         </span>
         <%= link_to post_path(@post) do %>
           <i class="far fa-comment"></i>
         <% end %>
         <%= @post.post_comments.count %>
       </div>
-      <div class="show-tweet-title">
+      <div class="show-post-title">
         <%= @post.title %>
       </div>
       <div class="post-text">
       <%= @post.content %>
       </div>
-      <div class="tweet-date">
+      <div class="post-date">
         <%= @post.created_at.strftime('%F') %>&nbsp;
         <%= @post.created_at.strftime('%H:%M') %>
       </div>
     </div>
-    <div class="show-tweet-box">
+    <div class="show-post-box">
       <!-- コメント入力部分 -->
       <div class="new-comment">
         <%= form_with(model:[@post, @comment], local: true) do |f| %>
-        <%= f.text_field :comment, class: "tweet-form" %>
-        <%= f.submit '送信', class: "tweet-btn" %>
+        <%= f.text_field :comment, class: "post-form" %>
+        <%= f.submit '送信', class: "post-btn" %>
         <% end %>
       </div>
       <!-- 入力されたコメントの表示部分 -->
       <% @post.comments.each do |comment| %>
         <div class="comments">
-          <%= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpg", class: "tweet-profile-image" %>
-          <%= link_to "#{comment.user.name}", user_path(comment.member), class: "member-name" %>
-          <span class="tweet-date">
+          <%= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpg", class: "post-profile-image" %>
+          <%= link_to "#{comment.user.name}", user_path(comment.user), class: "user-name" %>
+          <span class="post-date">
           　<% if comment.user == current_user %>
-              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "tweet-destroy-btn" %><br>
+              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "post-destroy-btn" %><br>
             <% end %>
           </span>
-          <div class="tweet-text">
+          <div class="post-text">
             <%= comment.comment %>
           </div>
-          <div class="tweet-date">
+          <div class="post-date">
         　　<%= comment.created_at.strftime('%F') %>&nbsp;<%= comment.created_at.strftime('%H:%M') %>
-        　　<hr class="tweet-border">
+        　　<hr class="post-border">
           </div>
         </div>
       <% end %>

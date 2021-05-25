@@ -2,22 +2,18 @@ class Public::CommentsController < ApplicationController
     before_action :authenticate_user!
 
   def create
-    @post = Post.find(params[:post_id])
+    post = Post.find(params[:post_id])
+    #comment = Comment.new(comment_paramas)
     comment = current_user.comments.new(comment_params)
-    comment.post_id = @post.id
+    comment.user_id = current_user.id
+    comment.post_id = post.id
     comment.save
-    # redirect_back(fallback_location: root_path)
-    # render :index
-    @comment = Comment.new
+    redirect_to posts_path
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @post = Post.find(params[:post_id])
     Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-    # redirect_back(fallback_location: root_path)
-    # render :index
-    @comment = Comment.new
+    redirect_to posts_path
   end
 
   private

@@ -13,13 +13,13 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :followings, through: :relationships, source: :followed
   has_many :posts, dependent: :destroy
-  
+ 
   def follow(other_user)
-    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
+    relationships.find_or_create_by(follower_id: other_user.id) unless self == other_user
   end
 
   def unfollow(other_user)
-    relationship = relationships.find_by(follow_id: other_user.id)
+    relationship = relationships.find_by(follower_id: other_user.id)
     relationship.destroy if relationship
   end
 
