@@ -15,16 +15,16 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
  
   def follow(other_user)
-    relationships.find_or_create_by(follower_id: other_user.id) unless self == other_user
+    Relationship.create(follower_id:self.id,followed_id: other_user.id) 
   end
 
   def unfollow(other_user)
-    relationship = relationships.find_by(follower_id: other_user.id)
+    relationship = Relationship.find_by(follower_id:self.id,followed_id: other_user.id) 
     relationship.destroy if relationship
   end
 
   def following?(other_user)
-    followings.include?(other_user)
+    Relationship.exists?(follower_id:self.id,followed_id: other_user.id)
   end
   # ここまで/
 

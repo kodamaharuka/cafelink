@@ -1,5 +1,6 @@
 class Public::RelationshipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user
   
   def followings
 		@user = User.find(params[:id])
@@ -16,7 +17,7 @@ class Public::RelationshipsController < ApplicationController
     if following.save
       flash[:notice] = 'フォローしました'
       # redirect_back(fallback_location: root_path)
-      render :create
+      redirect_back(fallback_location: root_path)
     else
       flash.now[:notice] = 'フォローに失敗しました'
       # redirect_back(fallback_location: root_path)
@@ -28,7 +29,7 @@ class Public::RelationshipsController < ApplicationController
     if following.destroy
       flash[:notice] = 'フォローを解除しました'
       # redirect_back(fallback_location: root_path)
-      render :destroy
+      redirect_back(fallback_location: root_path)
     else
       flash.now[:notice] = 'フォロー解除に失敗しました'
       # redirect_back(fallback_location: root_path)
