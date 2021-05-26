@@ -36,6 +36,7 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @genre.destroy
     redirect_to request.referer, notice: "ジャンルの削除に成功しました"
+    #redirect_back(fallback_location: root_path)
   end
 
   private

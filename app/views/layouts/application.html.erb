@@ -13,11 +13,11 @@
   
   <div class="row p-0 m-0">
   <div class="head-search col-lg-12 p-0 m-0">
-    <% if admin_signed_in? %>
-      <%= render 'admin/homes/search_form' %>
-    <% else %>
-      <%= render 'public/users/search_form' %>
-    <% end %>
+    <%# if admin_signed_in? %>
+      <%#= render 'admin/homes/' %>
+    <%# else %>
+      <%#= render 'public/users/search_form' %>
+    <%# end %>
   </div>
   
   <header>
@@ -89,7 +89,7 @@
             <%= link_to "店舗登録", new_admin_shop_path, class: "btn btn-outline-light btn-sm ml-0" %>
           </li>
           <li class="nav-item">
-            <%#= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+            <%= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
           <li class="nav-item">
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light btn-sm ml-3" %>
@@ -102,7 +102,7 @@
             <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
           <li class="nav-item">
-            <%#= link_to "店舗一覧", shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+            <%= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
         <% end %>
       </ul>

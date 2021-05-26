@@ -6,7 +6,7 @@ class Shop < ApplicationRecord
   accepts_attachments_for :images, attachment: :image
 
   #geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  #after_validation :geocode, if: :address_changed?
 
   validates :cafe_name, presence: true, length: { maximum: 30 }
   validates :address, presence: true
