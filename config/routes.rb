@@ -66,7 +66,12 @@ devise_for :admins, controllers: {
       resource :likes, only: [:create, :destroy]
       end
     
-  
+    get 'genres/cake' => 'genres#cake'
+    get 'genres/macaron' => 'genres#macaron'
+    get 'genres/chocolate' => 'genres#chocolate'
+    get 'genres/parfait' => 'genres#parfait'
+    get 'genres/cafe' => 'genres#cafe'
+    get 'genres/shaved_ice' => 'genres#shaved_ice'
     
     # カテゴリー検索
     get 'genre/search' => 'homes#search', as: 'search_shops'
