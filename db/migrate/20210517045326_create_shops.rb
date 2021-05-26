@@ -14,6 +14,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.text :introduction, null: false
 
       t.timestamps
+      
     end
   end
 end

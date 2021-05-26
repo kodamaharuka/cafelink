@@ -18,7 +18,7 @@ class Admin::ShopsController < ApplicationController
     @genres = Genre.all
     @shop = Shop.new(shop_params)
     if @shop.save
-      redirect_to admin_shop_path(@shop), noice: "店舗情報を登録しました"
+      redirect_to admin_shops_path, noice: "店舗情報を登録しました"
     else
       flash.now[:alert] = "店舗情報の登録を失敗しました"
       render :new
@@ -33,7 +33,7 @@ class Admin::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to admin_shop_path(@shop), noice: "店舗情報を更新しました"
+      redirect_to admin_shops_path, noice: "店舗情報を更新しました"
     else
       flash.now[:alert] = "店舗情報の更新を失敗しました"
       render :edit
@@ -54,14 +54,12 @@ class Admin::ShopsController < ApplicationController
       :cafe_name,
       :phone_number,
       :address,
-      :latitude,
-      :longitude,
       :nearest_station,
       :business_hours,
       :regular_holiday,
       :image,
-      :introduction,
-      shop_images_images: []
+      :introduction
+      #shop_images_images: []
     )
   end
 end
