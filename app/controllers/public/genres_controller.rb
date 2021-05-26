@@ -1,4 +1,5 @@
-class Member::GenresController < ApplicationController
+class User::GenresController < ApplicationController
+
   def cake
     @cakes_shops = Shop.where(genre_id: 1).page(params[:page]).per(10)
   end
