@@ -1,6 +1,6 @@
 <div class="show-shop-container">
   <div class="show-shop-top">
-    <span class="show-shop-name"><%= @cafe_name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <span class="show-shop-name"><%= @shop.cafe_name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
   </div>
   <div class="show-main-image">
     <%= attachment_image_tag @shop, :image, class: "main-image" %>

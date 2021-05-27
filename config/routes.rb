@@ -21,8 +21,8 @@ devise_for :admins, controllers: {
     # get "search/homes" => "homes#search", as: 'homes_search'
 
     #get 'shops/' => 'shops#show', as: 'shop'
-    get 'shops/edit' => 'shops#edit', as: 'shop_edit'
-    patch 'shops/' => 'shops#update', as: 'shop_update'
+    get 'shops/edit/:id' => 'shops#edit', as: 'shop_edit'
+    patch 'shops/:id' => 'shops#update', as: 'shop_update'
     delete 'shops/:id' => 'shops#destroy', as: 'shop_destroy'
     get 'search/shops' => 'shops#search', as: 'shops_search'
     resources :shops, only: %i[index create new show]

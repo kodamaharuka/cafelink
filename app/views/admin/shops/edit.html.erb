@@ -4,8 +4,8 @@
 <h3 class="page-heading">Shop Edit</h3>
 <div class="my-page-edit">
   <div class="edit-profile">
-    <%= form_with model: @shop, url: admin_shop_path(@shop), method: :patch, local: true do |f| %>
-    <%= render 'layouts/error_messages', model: @shop %>
+    <%= form_with model: @shop, url: admin_shop_update_path(@shop), method: :patch, local: true do |f| %>
+    <%= render 'layouts/errors', model: @shop %>
       <table class="table">
         <tr>
           <td class="admin-shop-text"><%= f.label :"店舗名"%></td>

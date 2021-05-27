@@ -33,7 +33,7 @@ class Admin::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to admin_shops_path, noice: "店舗情報を更新しました"
+      redirect_to admin_shop_path, noice: "店舗情報を更新しました"
     else
       flash.now[:alert] = "店舗情報の更新を失敗しました"
       render :edit

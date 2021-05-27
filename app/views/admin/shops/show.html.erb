@@ -3,21 +3,21 @@
 <!-- member/shops/showから引用 -->
 <div class="show-shop-container">
   <div class="show-shop-top">
-    <span class="show-shop-name"><%= @cafe_name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <span class="show-shop-name"><%= @shop.cafe_name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
       <span id="star-average-<%= @shop.id %>"></span>
-      <span class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</span>
-      <%= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
+      <span class="review-list-item"><%#= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</span>
+      <%#= render partial: 'member/reviews/star_average', locals: { shop: @shop } %>
     </ul>
   </div>
   <hr class="border">
   <div class="show-main-image">
-    <%= attachment_image_tag @shop, :main_image, class: "main-image" %>
+    <%= attachment_image_tag @shop, :image, class: "main_image" %>
   </div>
   <div class="show-sub-image">
-    <% @shop.shop_images.each do |shop_image| %>
-  　　  <%= attachment_image_tag shop_image, :image, class: "sub-image" %>
-  　<% end %>
+    <%# @shop.shop_images.each do |shop_image| %>
+  　　  <%#= attachment_image_tag shop_image, :image, class: "sub-image" %>
+  　<%# end %>
   </div>
   <hr class="border-sm">
   <div class="shop-caption">
@@ -52,11 +52,5 @@
       </tbody>
     </table>
   </div>
-  <hr class="border-sm">
-  <div class="map-area">
-    <h5>アクセス</h5>
-    <%#= render 'layouts/map' %>
-    <!--mapの表示-->
-    <div id="map"></div>
   </div>
 </div>
