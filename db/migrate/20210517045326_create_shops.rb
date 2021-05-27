@@ -12,9 +12,9 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.string :regular_holiday, null: false
       t.string :image_id
       t.text :introduction, null: false
-
       t.timestamps
       
+    
     end
   end
 end

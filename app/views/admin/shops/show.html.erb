@@ -3,7 +3,7 @@
 <!-- member/shops/showから引用 -->
 <div class="show-shop-container">
   <div class="show-shop-top">
-    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <span class="show-shop-name"><%= @cafe_name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
     <ul class="review-list">
       <span id="star-average-<%= @shop.id %>"></span>
       <span class="review-list-item"><%= @shop.reviews.average(:rate).to_f.round(1) %>&emsp;</span>
@@ -22,7 +22,7 @@
   <hr class="border-sm">
   <div class="shop-caption">
     <h5>店鋪紹介</h5>
-    <%= simple_format(@shop.caption) %>
+    <%= simple_format(@shop.introduction) %>
   </div>
   <hr class="border-sm">
   <div class="shop-info">

@@ -1,22 +1,2 @@
-<h1>shops#index</h1>
-<% shops.each do |shop| %>
-  <div class="shop-container">
-    <div class="shop-top">
-      <%= link_to shop.name, shop_path(shop) %>
-      <p class="shop-text">/&emsp;<%= shop.genre.name %></p>
-    </div>
-    <div class="shop-box">
-      <div class="shop-image-box">
-        <%= attachment_image_tag shop, :main_image, class: "shop-image" %>
-      </div>
-      <div class="shop-main">
-        <div class="shop-caption">
-          <p>最寄り駅&emsp;<%= shop.nearest_station %></p>
-          <p class="shop-text"><%= simple_format(shop.caption) %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr class="border">
-<% end %>
-<%= paginate shops %>
+<h3 class="page-heading">Shop</h3>
+<%= render  partial: 'public/shops/index', locals: { shops: @shops } %>

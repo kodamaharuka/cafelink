@@ -65,17 +65,20 @@ devise_for :admins, controllers: {
       #resources :likes, only: %i[create destroy]
       resource :likes, only: [:create, :destroy]
       end
+      
+    resources :shops, only: [:index, :show] 
     
-    get 'genres/cake' => 'genres#cake'
-    get 'genres/macaron' => 'genres#macaron'
-    get 'genres/chocolate' => 'genres#chocolate'
-    get 'genres/parfait' => 'genres#parfait'
-    get 'genres/cafe' => 'genres#cafe'
-    get 'genres/shaved_ice' => 'genres#shaved_ice'
+    get 'genres/kids' => 'genres#kids'
+    get 'genres/solo' => 'genres#solo'
+    get 'genres/date' => 'genres#date'
+    get 'genres/interior' => 'genres#interior'
+    get 'genres/pet' => 'genres#pet'
+    get 'genres/sweets' => 'genres#sweets'
+    get 'genres/alcohol' => 'genres#alcohol'
     
     # カテゴリー検索
     get 'genre/search' => 'homes#search', as: 'search_shops'
-    get 'shops/' => 'shops#show', as: 'shop'
+    #get 'shops/' => 'shops#show', as: 'shop'
     
   end
 end

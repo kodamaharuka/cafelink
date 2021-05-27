@@ -1,19 +1,15 @@
 <div class="show-shop-container">
   <div class="show-shop-top">
-    <span class="show-shop-name"><%= @shop.name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
+    <span class="show-shop-name"><%= @cafe_name %><p class="shop-text">&emsp;/&emsp;<%= @shop.genre.name %></p></span>
   </div>
   <div class="show-main-image">
     <%= attachment_image_tag @shop, :image, class: "main-image" %>
   </div>
-  <div class="show-sub-image">
-    <% @shop.shop_images.each do |shop_image| %>
-  　　  <%= attachment_image_tag shop_image, :image, class: "sub-image" %>
-  　<% end %>
-  </div>
+
   <hr class="border-sm">
   <div class="shop-caption">
     <h5>店鋪紹介</h5>
-    <%= simple_format(@shop.caption) %>
+    <%= simple_format(@shop.introduction) %>
   </div>
   <hr class="border-sm">
   <div class="shop-info">

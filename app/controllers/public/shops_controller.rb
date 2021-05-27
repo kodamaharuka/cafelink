@@ -16,14 +16,12 @@ class Public::ShopsController < ApplicationController
       :cafe_name,
       :phone_number,
       :address,
-      :latitude,
-      :longitude,
       :nearest_station,
       :business_hours,
       :regular_holiday,
       :image,
-      :introduction,
-      shop_images_images: []
+      :introduction
+      #shop_images_images: []
     )
   end
 end
