@@ -21,7 +21,7 @@ class Public::ShopsController < ApplicationController
       :regular_holiday,
       :image,
       :introduction
-      #shop_images_images: []
+      #shop_i: []
     )
   end
 end

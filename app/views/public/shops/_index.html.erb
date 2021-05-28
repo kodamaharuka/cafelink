@@ -1,5 +1,6 @@
 <h1>shops#index</h1>
-<% @shops.each do |shop| %>
+<% shops.each do |shop| %>
+<%# @shops.each do |shop| %>
   <div class="shop-container">
     <div class="shop-top">
       <%= link_to shop.cafe_name, shop_path(shop) %>
@@ -19,4 +20,4 @@
   </div>
   <hr class="border">
 <% end %>
-<%= paginate @shops %>
+<%= paginate shops %>
