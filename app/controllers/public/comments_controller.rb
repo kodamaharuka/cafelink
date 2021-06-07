@@ -3,7 +3,6 @@ class Public::CommentsController < ApplicationController
 
   def create
     post = Post.find(params[:post_id])
-    #comment = Comment.new(comment_paramas)
     comment = current_user.comments.new(comment_params)
     comment.user_id = current_user.id
     comment.post_id = post.id
