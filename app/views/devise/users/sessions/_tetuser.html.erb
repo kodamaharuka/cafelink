@@ -1,6 +1,6 @@
 <!--ゲストログイン-->
 <%= form_with model: @user, url: user_session_path, method: :post, local: true do |f| %>
-  <%= f.hidden_field :email ,value: "test@example.com" %>
-  <%= f.hidden_field :password ,value: "qazxsw" %>
+  <%= f.hidden_field :email ,value: "test@user.com" %>
+  <%= f.hidden_field :password ,value: "123456" %>
   <%= f.submit "ゲストログイン", class: "btn btn-outline-primary" %>
 <% end %>

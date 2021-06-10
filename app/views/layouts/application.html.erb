@@ -59,9 +59,12 @@
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path %>
           </li>
-          <li class="nav-item">
-            <%= link_to "店舗一覧", shops_path %>
+          <!--li class="nav-item">
+            <%#= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
           </li>
+          <!--li class="nav-item">
+            <%#= link_to "店舗一覧", shops_path %>
+          </li-->
         <% end %>
       </ul>
       <!-- パソコン画面用のヘッダー -->
@@ -101,9 +104,12 @@
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          <!--li class="nav-item">
+            <%#= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-outline-light btn-sm ml-3" %>
           </li>
+          <!--li class="nav-item">
+            <%#= link_to "店舗一覧", admin_shops_path, class: "btn btn-outline-light btn-sm ml-3" %>
+          </li-->
         <% end %>
       </ul>
     </nav>

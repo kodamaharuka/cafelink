@@ -54,3 +54,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :introduction, length: { maximum: 300 }
 end
+
+ def self.guest
+    find_or_create_by!(email: 'guest@example.com',name: 'ゲスト') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+  end
+end
